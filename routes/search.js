@@ -21,8 +21,8 @@ const getAnimeList = async (query, limit) => {
         score:    removeLineBreaks($item.parent().parent().next().next().next().text())
       }
     }],
-    current:  ($doc) => getStringBetween($doc.find('.normal_header.clearfix .bgColor1').text(), '[', ']'),
-    total:    ($doc) => getLastNumber($doc.find('.normal_header.clearfix .bgColor1').text())
+    current:  ($doc) => parseInt(getStringBetween($doc.find('.normal_header.clearfix .bgColor1').text(), '[', ']')),
+    total:    ($doc) => parseInt(getLastNumber($doc.find('.normal_header.clearfix .bgColor1').text()))
   })
 }
 
