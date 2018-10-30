@@ -1,7 +1,9 @@
 # mal-html-to-json
 
-returns json data from myanimelist at given id in this format:
+GET /:malAnimeID
 
+json data at given (myanimelist)AnimeID in this format:
+```
 {
   title,
   banner,
@@ -13,3 +15,27 @@ returns json data from myanimelist at given id in this format:
   episodes,
   status
 }
+```
+
+GET /search/:query/:limit?
+
+json data of anime array of all animes matching search query
+
+limit is optional, number of shows skipped, increments by 50
+
+in this format:
+```
+{
+  animes: [
+    {
+      id,
+      title,
+      banner,
+      score,
+      type,
+      episodes,
+      synopsis
+      }
+  ]
+}
+```
