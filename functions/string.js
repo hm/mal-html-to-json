@@ -1,3 +1,3 @@
 const removeLineBreaks = (str) => str.replace(/(\r\n\t|\n|\r\t)/gm,"").trim()
-
-module.exports = removeLineBreaks
+const ignoreNonNumeric = (str) => str.replace(/\D/g, '').trim()
+module.exports = { removeLineBreaks, ignoreNonNumeric }
