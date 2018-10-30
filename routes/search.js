@@ -1,5 +1,10 @@
 const htmlToJson = require('html-to-json')
-const { removeLineBreaks, ignoreNonNumeric } = require('../functions/string')
+const {
+  removeLineBreaks,
+  ignoreNonNumeric,
+  getLastNumber,
+  getStringBetween
+} = require('../functions/string')
 
 const getAnimeList = async (query, limit) => {
   let url = `https://myanimelist.net/anime.php?q=${query}`
@@ -9,13 +14,15 @@ const getAnimeList = async (query, limit) => {
       return {
         id:       ignoreNonNumeric($item.parent().attr('id')),
         title:    $item.text(),
-        synopsis: $item.parent().parent().text(),
+        synopsis: $item.parent().parent().find('.pt4').text(),
         banner:   $item.parent().parent().prev().find('div.picSurround a img').attr('data-src'),
         type:     removeLineBreaks($item.parent().parent().next().text()),
-        episodes:  removeLineBreaks($item.parent().parent().next().next().text()),
-        score:    removeLineBreaks($item.parent().parent().next().next().next().text()),
+        episodes: removeLineBreaks($item.parent().parent().next().next().text()),
+        score:    removeLineBreaks($item.parent().parent().next().next().next().text())
       }
-    }]
+    }],
+    current:  ($doc) => getStringBetween($doc.find('.normal_header.clearfix .bgColor1').text(), '[', ']'),
+    total:    ($doc) => getLastNumber($doc.find('.normal_header.clearfix .bgColor1').text())
   })
 }
 
