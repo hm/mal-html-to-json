@@ -12,7 +12,7 @@ const getAnimeList = async (query, limit) => {
         synopsis: $item.parent().parent().text(),
         banner:   $item.parent().parent().prev().find('div.picSurround a img').attr('data-src'),
         type:     removeLineBreaks($item.parent().parent().next().text()),
-        episode:  removeLineBreaks($item.parent().parent().next().next().text()),
+        episodes:  removeLineBreaks($item.parent().parent().next().next().text()),
         score:    removeLineBreaks($item.parent().parent().next().next().next().text()),
       }
     }]
