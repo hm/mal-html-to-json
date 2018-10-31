@@ -7,13 +7,41 @@ json data at given (myanimelist)AnimeID in this format:
 {
   title,
   banner,
-  score,
-  scoredBy,
-  type,
-  popularity,
   synopsis,
+  type,
   episodes,
-  status
+  status,
+  aired,
+  producers: [],
+  licensors: [],
+  studios: [],
+  source,
+  genres: [],
+  duration,
+  rating,
+  score,
+  scored_by,
+  ranked,
+  popularity,
+  members,
+  favorites,
+  related: {
+    adaptation: []
+    prequel: [],
+    sequel: [],
+    side_story: []
+  },
+  characters: [
+    {
+      char_img,
+      char_name,
+      char_type,
+      actor_img,
+      actor_name,
+      actor_type
+    }
+  ]
+  
 }
 ```
 
