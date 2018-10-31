@@ -36,6 +36,8 @@ in this format:
       episodes,
       synopsis
       }
-  ]
+  ],
+  current,
+  total
 }
 ```
